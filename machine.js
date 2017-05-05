@@ -51,8 +51,8 @@ Machine.prototype = {
     this.update();
   },
 
-  addChange(amount) {
-    this.money+= Number(amount);
+  addChange(amount = 0) {
+    this.money+= Number(amount) / 100;
     document.getElementById('pay').innerHTML = this.money;
   },
 
@@ -60,12 +60,20 @@ Machine.prototype = {
     let self = Object.keys(this);
 
     for (let i = 1; i < self.length; i++) {
-      console.log();
-      if (node.firstElementChild.innerHTML === this[self[i]][0].code) {
+      console.log( this[self[i]][0].price, this.money );
+      if (node.firstElementChild.innerHTML === this[self[i]][0].code && this.money === Number(this[self[i]][0].price)) {
         this[self[i]][0].amount--;
         this.update();
+        this.resetChange();
       }
     }
+  },
+
+  resetChange() {
+    this.money = 0;
+
+    this.update();
+    this.addChange();
   },
 
   addListeners(nodeList) {
