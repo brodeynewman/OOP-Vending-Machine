@@ -18,9 +18,14 @@ function Machine() {
 }
 
 Machine.prototype = {
+<<<<<<< HEAD
   loadSodas(...args) {
     let argArr = [];
 
+=======
+  loadSodas: function(...args) {
+    
+>>>>>>> ec5895ee7d107d89de4efef8f68b7ce4ef997294
     for (let i = 0; i < args.length; i++) {
       this[args[i].name] = [args[i]];
     }
