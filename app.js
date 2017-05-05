@@ -11,9 +11,20 @@ let fanta = new Item('Fanta', '13', '.50', currentDate, 'D2');
 
 document.getElementById('five').addEventListener('click', function() {
   let amount = this.firstElementChild.innerHTML;
-
   machine.addChange(amount);
 });
+
+document.getElementById('ten').addEventListener('click', function() {
+  let amount = this.firstElementChild.innerHTML;
+  machine.addChange(amount);
+});
+
+document.getElementById('twentyFive').addEventListener('click', function() {
+  let amount = this.firstElementChild.innerHTML;
+  machine.addChange(amount);
+});
+
+machine.addListeners(document.querySelectorAll('.button'));
 
 machine.loadSodas(pepsi, coke, sprite, fanta);
 

@@ -18,14 +18,9 @@ function Machine() {
 }
 
 Machine.prototype = {
-<<<<<<< HEAD
-  loadSodas(...args) {
-    let argArr = [];
 
-=======
   loadSodas: function(...args) {
-    
->>>>>>> ec5895ee7d107d89de4efef8f68b7ce4ef997294
+
     for (let i = 0; i < args.length; i++) {
       this[args[i].name] = [args[i]];
     }
@@ -33,8 +28,8 @@ Machine.prototype = {
 
   countAllSodas() {
     let total = 0;
-
-    for (let i = 1; i < Object.keys(this).length; i++) {
+    let self = Object.keys(this);
+    for (let i = 1; i < self.length; i++) {
       let name = Object.keys(this)[i];
 
       total += Number(this[name][0].amount);
@@ -59,5 +54,25 @@ Machine.prototype = {
   addChange(amount) {
     this.money+= Number(amount);
     document.getElementById('pay').innerHTML = this.money;
+  },
+
+  purchase(node) {
+    let self = Object.keys(this);
+
+    for (let i = 1; i < self.length; i++) {
+      console.log();
+      if (node.firstElementChild.innerHTML === this[self[i]][0].code) {
+        this[self[i]][0].amount--;
+        this.update();
+      }
+    }
+  },
+
+  addListeners(nodeList) {
+    for (let i = 0; i < nodeList.length; i++) {
+      nodeList[i].addEventListener('click', function() {
+        machine.purchase(this);
+      })
+    }
   }
 }
