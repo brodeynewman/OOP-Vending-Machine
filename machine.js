@@ -14,11 +14,11 @@
   // machine will be able to tell what products are expired and when
 
 function Machine() {
-
+  this.money = 0;
 }
 
 Machine.prototype = {
-  loadSodas: function(...args) {
+  loadSodas(...args) {
     let argArr = [];
 
     for (let i = 0; i < args.length; i++) {
@@ -26,10 +26,10 @@ Machine.prototype = {
     }
   },
 
-  countAllSodas: function() {
+  countAllSodas() {
     let total = 0;
 
-    for (let i = 0; i < Object.keys(this).length; i++) {
+    for (let i = 1; i < Object.keys(this).length; i++) {
       let name = Object.keys(this)[i];
 
       total += Number(this[name][0].amount);
@@ -40,10 +40,19 @@ Machine.prototype = {
 
   update() {
     let total = this.countAllSodas();
-    alert(`There are ${total} sodas left in this machine`);
+    let text = `${total} sodas`;
+
+    document.getElementById('sodaCount').innerHTML = text;
   },
 
   turnOn() {
+    document.getElementById('pay').innerHTML = this.money;
+
     this.update();
+  },
+
+  addChange(amount) {
+    this.money+= Number(amount);
+    document.getElementById('pay').innerHTML = this.money;
   }
 }

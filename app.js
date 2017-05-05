@@ -9,6 +9,11 @@ let coke = new Item('Coke', '5', '.50', currentDate, 'B3');
 let sprite = new Item('Sprite', '11', '.50', currentDate, 'C4');
 let fanta = new Item('Fanta', '13', '.50', currentDate, 'D2');
 
+document.getElementById('five').addEventListener('click', function() {
+  let amount = this.firstElementChild.innerHTML;
+
+  machine.addChange(amount);
+});
 
 machine.loadSodas(pepsi, coke, sprite, fanta);
 

@@ -21,11 +21,109 @@ body {
   border-radius: 5px;
 }
 
+.pay-box {
+  position: absolute;
+  top: 113px;
+  right: 35px;
+  background-color: #333;
+  width: 52px;
+  height: 25px;
+  -moz-box-shadow:    inset 0 0 10px #000000;
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px #000000;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: #ddd;
+}
+
+.coin-box {
+  position: absolute;
+  right: 10px;
+  top: 150px;
+  width: 100px;
+  height: 25px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.coin-outter {
+  background-color: #ddd;
+  width: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666666;
+  border-radius: 100%;
+  border: 1px dotted #696969;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.help-box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #333;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+}
+
+.coin-outter:active {
+  box-shadow: none;
+}
+
+.soda-count {
+  position: absolute;
+  right: 10px;
+  top: 19px;
+  background-color: #333;
+  -moz-box-shadow:    inset 0 0 10px #000000;
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px #000000;
+   width: 100px;
+   height: 25px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: goldenrod;
+   border-radius: 5px;
+}
+
+.coke-box {
+  position: absolute;
+  top: 0;
+  left: 16px;
+  width: 45px;
+  height: 100%;
+}
+
+.soda {
+  position: absolute;
+  z-index: 99;
+  height: 30px;
+  width: 26px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
+}
+
+.coke {
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ddd;
+  bottom: 0;
+  left: 9px;
+}
+
 .touch-pad {
   background-color: #333;
   position: absolute;
   right: 5%;
-  top: 25%;
+  top: 35%;
   width: 75px;
   height: 100px;
   display: flex;
@@ -145,27 +243,25 @@ body {
   background-color: #333;
   position: absolute;
   right: 2%;
-  top: 59%;
+  top: 70.5%;
   width: 100px;
-  height: 150px;
+  height: 88px;
   display: flex;
   flex-wrap: wrap;
-  -moz-box-shadow:    inset 0 0 10px #000000;
-   -webkit-box-shadow: inset 0 0 10px #000000;
-   box-shadow:         inset 0 0 10px #000000;
-   border-radius: 5px;
+  -moz-box-shadow: inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow: inset 0 0 10px #000000;
+  border-radius: 5px;
 }
 
 .bottom-box {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  padding-top: 150px;
   background-color: #70D3D0;
   border-top: 1px solid #ddd;
   padding: 25px;
   text-align: center;
   color: #fff;
+  z-index: 9999;
 }
 
 .heart {
