@@ -93,16 +93,14 @@ Machine.prototype = {
     }
 
     for (let i = 1; i < displayArr.length + 1; i++) {
+      let div = document.createElement('div');
+      let amount = this[self[i]][0].amount;
+      let name = this[self[i]][0].name;
 
-        let div = document.createElement('div');
-        let amount = this[self[i]][0].amount;
-        let name = this[self[i]][0].name;
-
-        div.className = 'display';
-        div.innerHTML = `${name} (${amount})`;
-        displayBox.append(div);
-      }
-
+      div.className = 'display';
+      div.innerHTML = `${name} (${amount})`;
+      displayBox.append(div);
+    }
   },
 
   mapSodas() {
@@ -143,7 +141,6 @@ Machine.prototype = {
         default:
           break;
       }
-
     }
   }
 }
