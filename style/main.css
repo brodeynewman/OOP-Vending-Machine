@@ -220,13 +220,13 @@ body {
 }
 
 .coke-price {
-  top: -10px;
-  left: 22px;
+  top: 75px;
+  left: 175px;
 }
 
 .pepsi-price {
-  top: 160px;
-  left: 175px;
+  top: 75px;
+  left: 22px;
 }
 
 .fanta-price {
