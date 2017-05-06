@@ -1,9 +1,3 @@
-// product object will have a price
-
-// product object will have a name
-
-// product object will have an expiration date
-
 function Item(name, amount, price, expirationDate, code) {
   this.name = name;
   this.amount = amount;

@@ -386,6 +386,8 @@ body {
   z-index: 9999;
 }
 
-.heart {
+.heart,
+.bottom-box a {
   color: #E7263B;
+  text-decoration: none;
 }
