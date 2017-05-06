@@ -154,11 +154,25 @@ body {
   width: 26px;
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
 }
 
-.coke,
-.grab-coke {
+.return-box {
+  position: absolute;
+  top: 300px;
+  right: 55px;
+  background-color: #333;
+  width: 10px;
+  height: 15px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.return-box:active {
+  box-shadow: none;
+}
+
+.coke {
   background-color: #D5212B;
   display: flex;
   justify-content: center;
@@ -188,8 +202,7 @@ body {
   left: 0;
 }
 
-.pepsi,
-.grab-pepsi {
+.pepsi {
   background-color: #004A7E;
   display: flex;
   justify-content: center;
@@ -200,85 +213,30 @@ body {
   transition: all .5s;
 }
 
-.grab-pepsi,
-.grab-coke,
-.grab-fanta,
-.grab-sprite {
-  bottom: -11px;
-  margin-left: -50px;
-  cursor: pointer;
-}
-
-.pepsi-slide {
-  animation: soda-slide 2s forwards 1.5s;
-}
-
-.pepsi-drop {
-  animation: pepsi-drop 3s forwards;
-}
-
-.coke-drop {
-  animation: coke-drop 3s forwards;
-}
-
-.coke-slide {
-  animation: soda-slide 2s forwards 1s;
-}
-
-@keyframes soda-slide {
-
-  0% {
-    margin-left: -50px;
-  }
-
-  100% {
-    margin-left: 25px;
-  }
-
-}
-
-@keyframes coke-drop {
-
-  0% {
-    bottom: 0;
-  }
-
-  25% {
-    bottom: -295px;
-    left: 0;
-  }
-
-  100% {
-    bottom: -295px;
-    left: 200px;
-  }
-
-}
-
-@keyframes pepsi-drop {
-
-  0% {
-    bottom: 0;
-  }
-
-  25% {
-    bottom: -380px;
-    left: 0;
-  }
-
-  100% {
-    bottom: -380px;
-    left: 300px;
-  }
-
-}
-
 .price-box {
   color: #ddd;
   position: absolute;
-  top: 70px;
-  left: 0;
-  z-index: 999;
+  z-index: 99;
+}
+
+.coke-price {
+  top: -10px;
+  left: 22px;
+}
+
+.pepsi-price {
+  top: 160px;
+  left: 175px;
+}
+
+.fanta-price {
+  top: 75px;
+  left: 102px;
+}
+
+.sprite-price {
+  top: 75px;
+  right: 30px;
 }
 
 .touch-pad {

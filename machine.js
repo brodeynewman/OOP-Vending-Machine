@@ -41,6 +41,7 @@ Machine.prototype = {
     let text = `${total} sodas`;
 
     this.updateIndividualSodas();
+    this.mapSodas();
     (total > 0) ? document.getElementById('sodaCount').innerHTML = text : document.getElementById('sodaCount').innerHTML = 'Empty';
   },
 
@@ -70,7 +71,6 @@ Machine.prototype = {
 
           this[self[i]][0].amount--;
           this.resetChange(newAmount);
-          this.toggleAnimation(name);
         } else {
           alert(`${name} is out of stock!`);
           this.resetChange(this.money);
@@ -81,7 +81,7 @@ Machine.prototype = {
     }
   },
 
-  resetChange(amount) {
+  resetChange(amount = 0) {
     this.money = amount;
 
     this.update();
@@ -96,18 +96,6 @@ Machine.prototype = {
     }, 3000);
   },
 
-  toggleAnimation(node) {
-    let lowerNode = node.toLowerCase();
-
-    document.getElementById(lowerNode).className = `soda ${lowerNode} ${lowerNode}-drop`;
-    document.getElementById(`${lowerNode}Grab`).className = `grab-soda grab-${lowerNode} ${lowerNode}-slide`;
-  },
-
-  removeNode(node) {
-    node.style.display = 'none';
-    console.log(node);
-  },
-
   updateIndividualSodas() {
     let displayBox = document.getElementById('displayBox');
     let self = Object.keys(this);
@@ -120,28 +108,42 @@ Machine.prototype = {
     }
 
     for (let i = 1; i < displayArr.length + 1; i++) {
-      let div = document.createElement('div');
-      let amount = this[self[i]][0].amount;
-      let name = this[self[i]][0].name;
 
-      (amount === 0) ? this.removeFromDom(`${name}`) : void 0 ;
+        let div = document.createElement('div');
+        let amount = this[self[i]][0].amount;
+        let name = this[self[i]][0].name;
 
-      div.className = 'display';
-      div.innerHTML = `${name} (${amount})`;
-      displayBox.append(div);
+        div.className = 'display';
+        div.innerHTML = `${name} (${amount})`;
+        displayBox.append(div);
+      }
+
+  },
+
+  mapSodas() {
+    let self = Object.keys(this);
+    let objArr = [];
+
+    for (let i = 1; i < self.length; i++) {
+        let name = this[self[i]][0].name.toLowerCase();
+        document.getElementById(`${name}Box`).innerHTML = '';
+
+        for (let j = 0; j < this[self[i]][0].amount; j++) {
+          let div = document.createElement('div');
+          let para = document.createElement('p');
+          para.className = 'soda-text';
+          para.innerHTML = name;
+          div.className = `soda ${name}`;
+          div.append(para);
+          document.getElementById(`${name}Box`).prepend(div);
+        }
     }
   },
 
   addListeners(nodeList) {
 
     for (let i = 0; i < nodeList.length; i++) {
-      console.log(nodeList[i].classList.value);
       switch(nodeList[i].classList.value) {
-        case 'grab-box':
-          nodeList[i].addEventListener('click', function() {
-            alert('hello');
-          });
-          break;
         case 'button':
           nodeList[i].addEventListener('click', function() {
             machine.purchase(this);
@@ -152,6 +154,8 @@ Machine.prototype = {
             let amount = Number(this.firstElementChild.innerHTML);
             machine.addChange(amount);
           });
+          break;
+        default:
           break;
       }
 
