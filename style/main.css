@@ -19,6 +19,32 @@ body {
   padding: 20px;
   position: relative;
   border-radius: 5px;
+  z-index: 9999;
+}
+
+.display-box {
+  position: absolute;
+  bottom: 22px;
+  left: 15px;
+  right: 15px;
+  height: 25px;
+  padding: 0px 12px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.display {
+  flex-basis: 75px;
+  background-color: #333;
+  -moz-box-shadow:    inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow:         inset 0 0 10px #000000;
+  color: goldenrod;
+  align-self: Stretch;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pay-box {
@@ -91,17 +117,39 @@ body {
    border-radius: 5px;
 }
 
-.coke-box {
+.pepsi-box {
   position: absolute;
   top: 0;
-  left: 16px;
+  left: 23px;
   width: 45px;
   height: 100%;
 }
 
-.soda {
+.coke-box {
   position: absolute;
-  z-index: 99;
+  top: 0;
+  bottom: 0;
+  right: 127px;
+}
+
+.sprite-box {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 50px;
+}
+
+.fanta-box {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 100px;
+}
+
+.soda,
+.grab-soda {
+  position: absolute;
+  z-index: 999;
   height: 30px;
   width: 26px;
   border-radius: 5px;
@@ -109,14 +157,128 @@ body {
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
 }
 
-.coke {
-  background-color: red;
+.coke,
+.grab-coke {
+  background-color: #D5212B;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ddd;
+  color: white;
   bottom: 0;
-  left: 9px;
+  left: 0;
+}
+
+.sprite {
+  background-color: #17A053;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  bottom: 0;
+  left: 0;
+}
+
+.fanta {
+  background-color: #FF8300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  bottom: 0;
+  left: 0;
+}
+
+.pepsi,
+.grab-pepsi {
+  background-color: #004A7E;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  bottom: 0;
+  left: 0px;
+  transition: all .5s;
+}
+
+.grab-pepsi,
+.grab-coke,
+.grab-fanta,
+.grab-sprite {
+  bottom: -11px;
+  margin-left: -50px;
+  cursor: pointer;
+}
+
+.pepsi-slide {
+  animation: soda-slide 2s forwards 1.5s;
+}
+
+.pepsi-drop {
+  animation: pepsi-drop 3s forwards;
+}
+
+.coke-drop {
+  animation: coke-drop 3s forwards;
+}
+
+.coke-slide {
+  animation: soda-slide 2s forwards 1s;
+}
+
+@keyframes soda-slide {
+
+  0% {
+    margin-left: -50px;
+  }
+
+  100% {
+    margin-left: 25px;
+  }
+
+}
+
+@keyframes coke-drop {
+
+  0% {
+    bottom: 0;
+  }
+
+  25% {
+    bottom: -295px;
+    left: 0;
+  }
+
+  100% {
+    bottom: -295px;
+    left: 200px;
+  }
+
+}
+
+@keyframes pepsi-drop {
+
+  0% {
+    bottom: 0;
+  }
+
+  25% {
+    bottom: -380px;
+    left: 0;
+  }
+
+  100% {
+    bottom: -380px;
+    left: 300px;
+  }
+
+}
+
+.price-box {
+  color: #ddd;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  z-index: 999;
 }
 
 .touch-pad {
@@ -252,6 +414,8 @@ body {
   -webkit-box-shadow: inset 0 0 10px #000000;
   box-shadow: inset 0 0 10px #000000;
   border-radius: 5px;
+  z-index: 99;
+  overflow: hidden;
 }
 
 .bottom-box {
