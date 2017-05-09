@@ -1,8 +1,7 @@
-function Item(name, amount, price, expirationDate, code) {
+function Item(name, amount, price, code) {
   this.name = name;
   this.amount = amount;
   this.price = price;
-  this.expirationDate = expirationDate;
   this.code = code;
 }
 
