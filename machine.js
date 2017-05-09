@@ -124,7 +124,6 @@ Machine.prototype = {
   },
 
   addListeners(nodeList) {
-
     for (let i = 0; i < nodeList.length; i++) {
       switch(nodeList[i].classList.value) {
         case 'button':
