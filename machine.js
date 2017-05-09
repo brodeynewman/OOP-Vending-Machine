@@ -73,14 +73,6 @@ Machine.prototype = {
     this.addChange();
   },
 
-  removeFromDom(node) {
-    let lowerNode = node.toLowerCase();
-
-    setTimeout(function() {
-      document.getElementById(lowerNode).style.display = 'none';
-    }, 3000);
-  },
-
   updateIndividualSodas() {
     let displayBox = document.getElementById('displayBox');
     let self = Object.keys(this);
