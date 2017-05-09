@@ -11,7 +11,6 @@ document.getElementById('return').addEventListener('click', function() {
 });
 
 machine.addListeners(document.querySelectorAll('.button'));
-machine.addListeners(document.querySelectorAll('.grab-soda'));
 machine.addListeners(document.querySelectorAll('.coin-outter'));
 machine.loadSodas(pepsi, coke, sprite, fanta);
 machine.turnOn();
